@@ -1,8 +1,13 @@
 import { MainNav } from "@/components/main-nav";
 import { LayoutBalancer } from "@/components/ui/balancer";
 import Link from "next/link";
+import { getCategories } from "@/actions/categories";
 
-const SiteHeader = () => {
+const SiteHeader = async () => {
+    const categories = await getCategories();
+
+    console.log(categories);
+
     return (
         <header className="border-b">
             <LayoutBalancer>
@@ -10,7 +15,7 @@ const SiteHeader = () => {
                     <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
                         <p className="font-bold text-xl">Store</p>
                     </Link>
-                    <MainNav items={[]} />
+                    <MainNav items={categories} />
                 </div>
             </LayoutBalancer>
         </header>
