@@ -1,12 +1,10 @@
+import Link from "next/link";
 import { MainNav } from "@/components/main-nav";
 import { LayoutBalancer } from "@/components/ui/balancer";
-import Link from "next/link";
 import { getCategories } from "@/actions/categories";
 
 const SiteHeader = async () => {
     const categories = await getCategories();
-
-    console.log(categories);
 
     return (
         <header className="border-b">
